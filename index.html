@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RG Security - Cybersecurity & Ethical Hacking</title>
+    <title>RG Security Team</title>
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Google Fonts for Inter and Montserrat -->
@@ -12,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="shortcut icon" href="image/rg.png" type="image/x-icon">
     <style>
         body {
             background-color: #212121;
@@ -291,7 +292,7 @@
                 slide.innerHTML = `
                     <div class="video-card rounded-xl overflow-hidden shadow-xl transform transition-transform duration-300">
                         <a href="${video.youtubeUrl}" target="_blank" class="block relative">
-                            <img src="${video.thumbnail}" alt="${video.title}" class="thumbnail-img">
+                            <img src="${video.thumbnail}" alt="${video.title}" class="thumbnail-img" loading="lazy">
                             <div class="play-button rounded-full">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8 text-white">
                                     <path d="M8 5v14l11-7z"/>
@@ -347,3 +348,4 @@
     </script>
 </body>
 </html>
+
