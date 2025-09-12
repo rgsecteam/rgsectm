@@ -16,10 +16,10 @@ const mockVideos = [
     },
     {
         id: '3',
-        title: "Camohish",
+        title: "CamPhish Tool Explained | Capture Camera Photos via Link (Cybersecurity Tutorial)",
         duration: "03:24",
         thumbnail: "image/thumbinels/camphish.png",
-        youtubeUrl: ""
+        youtubeUrl: "https://youtu.be/SSNFRb1Tx0c?si=ttGqOcRJpAtxwlmf"
     },
     {
         id: '4',
