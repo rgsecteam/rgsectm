@@ -1,0 +1,330 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    background-color: #212121;
+    color: white;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header Styles */
+.header {
+    background-color: #1a1a1a;
+    padding: 24px 0;
+    border-bottom: 1px solid #374151;
+}
+
+.header-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+.logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 2px solid #06b6d4;
+    box-shadow: 0 0 10px #06b6d4, 0 0 20px #04d9ff;
+}
+
+.brand-info {
+    text-align: left;
+}
+
+.brand-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    letter-spacing: 0.05em;
+    margin-bottom: 4px;
+}
+
+.brand-subtitle {
+    color: #06b6d4;
+    font-size: 0.875rem;
+}
+
+/* Video Section Styles */
+.video-section {
+    background-color: #212121;
+    padding: 64px 0;
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 48px;
+    color: white;
+}
+
+.video-slider {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.video-container {
+    display: flex;
+    transition: transform 1s ease-in-out;
+}
+
+.video-item {
+    width: 100%;
+    flex-shrink: 0;
+    position: relative;
+    cursor: pointer;
+    group: hover;
+}
+
+.video-thumbnail {
+    position: relative;
+    aspect-ratio: 16/9;
+    background-color: #374151;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.video-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.video-item:hover .video-image {
+    transform: scale(1.05);
+}
+
+.video-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease;
+}
+
+.video-item:hover .video-overlay {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #dc2626;
+    border-radius: 50%;
+    padding: 16px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.video-item:hover .play-button {
+    background-color: #ef4444;
+}
+
+.play-icon {
+    width: 32px;
+    height: 32px;
+    margin-left: 4px;
+}
+
+.duration-badge {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    background-color: rgba(0, 0, 0, 0.75);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.clock-icon {
+    width: 12px;
+    height: 12px;
+}
+
+.video-title {
+    padding: 16px;
+}
+
+.video-title h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: white;
+    transition: color 0.3s ease;
+}
+
+.video-item:hover .video-title h3 {
+    color: #06b6d4;
+}
+
+/* Slider Dots */
+.slider-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 32px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #6b7280;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot:hover {
+    background-color: #9ca3af;
+}
+
+.dot.active {
+    background-color: #06b6d4;
+    transform: scale(1.1);
+}
+
+/* Contact Section Styles */
+.contact-section {
+    background-color: #1a1a1a;
+    padding: 64px 0;
+}
+
+.contact-description {
+    color: #d1d5db;
+    font-size: 1.125rem;
+    margin-bottom: 48px;
+    text-align: center;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+}
+
+.social-button {
+    position: relative;
+    padding: 24px;
+    background-color: #212121;
+    border-radius: 12px;
+    border: 1px solid #374151;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+}
+
+.social-button:hover {
+    border-color: #6b7280;
+    transform: scale(1.05);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.social-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.social-icon {
+    width: 32px;
+    height: 32px;
+    transition: color 0.3s ease;
+}
+
+.social-name {
+    color: #d1d5db;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.social-button:hover .social-name {
+    color: white;
+}
+
+.social-background {
+    position: absolute;
+    inset: 0;
+    border-radius: 12px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.social-button:hover .social-background {
+    opacity: 0.1;
+}
+
+/* Footer */
+.footer {
+    margin-top: 48px;
+    padding-top: 32px;
+    border-top: 1px solid #374151;
+    text-align: center;
+}
+
+.footer p {
+    color: #9ca3af;
+    font-size: 0.875rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 16px;
+    }
+    
+    .brand-title {
+        font-size: 1.5rem;
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
+    }
+    
+    .social-links {
+        gap: 16px;
+    }
+    
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .brand-info {
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .video-section,
+    .contact-section {
+        padding: 48px 0;
+    }
+    
+    .social-button {
+        padding: 16px;
+    }
+}
