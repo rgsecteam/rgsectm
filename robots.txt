@@ -1,0 +1,7 @@
+# robots.txt — Tells search engine crawlers what to index
+# More info: https://developers.google.com/search/docs/crawling-indexing/robots/intro
+
+User-agent: *
+Allow: /
+
+Sitemap: https://rgsecteam.github.io/sitemap.xml
