@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ============================================================
+         SEO META TAGS
+         ============================================================ -->
+    <title>Tools | RG Security Team — Open Source Hacking Tools</title>
+    <meta name="description" content="Explore open-source cybersecurity tools developed by RG Security Team. Falcon Hijacker (clipboard monitor) and Evil-Eye (camera phishing framework) — for educational & authorized use only.">
+    <meta name="keywords" content="RGSecurityTeam tools, falcon hijacker, evil eye camera phishing, clipboard hijacker, kali linux tools, ethical hacking tools, bash security tools, open source hacking">
+    <meta name="author" content="RG Security Team">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://rgsecteam.github.io/tools/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Tools | RG Security Team">
+    <meta property="og:description" content="Open-source cybersecurity tools by RG Security Team — Falcon Hijacker & Evil-Eye. For educational use only.">
+    <meta property="og:url" content="https://rgsecteam.github.io/tools/">
+    <meta property="og:image" content="https://rgsecteam.github.io/image/rg.png">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "RG Security Team Tools",
+      "url": "https://rgsecteam.github.io/tools/",
+      "author": { "@type": "Organization", "name": "RG Security Team" },
+      "applicationCategory": "SecurityApplication",
+      "operatingSystem": "Linux, macOS"
+    }
+    </script>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="../image/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../image/favicon_io/favicon-32x32.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Share+Tech+Mono&family=Exo+2:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+    /* ============================================================
+       TOOLS PAGE — PREMIUM CYBERPUNK STYLESHEET
+       ============================================================ */
+    :root {
+        --cyan: #00e5ff;
+        --cyan-dim: #06b6d4;
+        --cyan-glow: rgba(0, 229, 255, 0.3);
+        --cyan-subtle: rgba(0, 229, 255, 0.06);
+        --red: #ff1744;
+        --red-glow: rgba(255, 23, 68, 0.35);
+        --green: #00e676;
+        --green-glow: rgba(0, 230, 118, 0.3);
+        --orange: #ff9100;
+        --orange-glow: rgba(255, 145, 0, 0.3);
+        --purple: #d500f9;
+        --purple-glow: rgba(213, 0, 249, 0.3);
+        --bg-dark: #090d12;
+        --bg-card: #0d1420;
+        --bg-card-2: #0f1825;
+        --border: rgba(0, 229, 255, 0.13);
+        --border-hover: rgba(0, 229, 255, 0.45);
+        --text-primary: #e8f4f8;
+        --text-secondary: #7a9db8;
+        --text-muted: #3d5a73;
+        --font-display: 'Orbitron', sans-serif;
+        --font-mono: 'Share Tech Mono', monospace;
+        --font-body: 'Exo 2', sans-serif;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+        font-family: var(--font-body);
+        background: var(--bg-dark);
+        color: var(--text-primary);
+        line-height: 1.6;
+        min-height: 100vh;
+        overflow-x: hidden;
+    }
+
+    /* BG */
+    .bg-grid {
+        position: fixed; inset: 0;
+        background-image:
+            linear-gradient(rgba(0,229,255,0.025) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(0,229,255,0.025) 1px, transparent 1px);
+        background-size: 60px 60px;
+        pointer-events: none; z-index: 0;
+    }
+    .scanlines {
+        position: fixed; inset: 0;
+        background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.06) 2px, rgba(0,0,0,0.06) 4px);
+        pointer-events: none; z-index: 1;
+    }
+
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 2; }
+
+    /* HEADER */
+    .header {
+        position: sticky; top: 0; z-index: 100;
+        padding: 16px 0;
+        background: rgba(9,13,18,0.94);
+        border-bottom: 1px solid var(--border);
+        backdrop-filter: blur(20px);
+    }
+    .header-glow {
+        position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+        width: 60%; height: 1px;
+        background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+    }
+    .header-inner {
+        display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    }
+    .header-left { display: flex; align-items: center; gap: 14px; }
+    .back-btn {
+        display: inline-flex; align-items: center; gap: 6px;
+        font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.1em;
+        color: var(--text-secondary); text-decoration: none;
+        border: 1px solid var(--border); border-radius: 4px;
+        padding: 6px 12px; transition: all 0.3s ease;
+    }
+    .back-btn:hover { color: var(--cyan); border-color: var(--cyan); box-shadow: 0 0 10px var(--cyan-glow); }
+    .back-btn svg { width: 14px; height: 14px; }
+
+    .logo-mini {
+        width: 40px; height: 40px; border-radius: 50%;
+        border: 1.5px solid var(--cyan);
+        box-shadow: 0 0 10px var(--cyan-glow);
+    }
+    .header-brand {
+        font-family: var(--font-display); font-size: 1rem; font-weight: 700;
+        letter-spacing: 0.06em;
+        background: linear-gradient(135deg, #fff 0%, var(--cyan) 100%);
+        -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .header-right {
+        font-family: var(--font-mono); font-size: 0.7rem; color: var(--cyan-dim); opacity: 0.7; letter-spacing: 0.12em;
+    }
+
+    /* HERO */
+    .hero {
+        padding: 70px 0 50px;
+        text-align: center;
+        position: relative;
+    }
+    .hero::before {
+        content: '';
+        position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+        width: 500px; height: 300px;
+        background: radial-gradient(ellipse, rgba(0,229,255,0.06) 0%, transparent 70%);
+        pointer-events: none;
+    }
+    .hero-tag {
+        font-family: var(--font-mono); font-size: 0.72rem; color: var(--cyan-dim);
+        letter-spacing: 0.2em; margin-bottom: 14px; opacity: 0.7;
+    }
+    .hero-title {
+        font-family: var(--font-display); font-size: clamp(2rem, 5vw, 3.4rem);
+        font-weight: 900; letter-spacing: 0.05em; line-height: 1.1;
+        margin-bottom: 16px;
+    }
+    .hero-title .accent { color: var(--cyan); text-shadow: 0 0 30px var(--cyan-glow); }
+    .hero-desc {
+        font-size: 1rem; color: var(--text-secondary); max-width: 520px; margin: 0 auto 40px;
+    }
+    .tool-count-bar {
+        display: inline-flex; align-items: center; gap: 10px;
+        background: var(--bg-card); border: 1px solid var(--border);
+        border-radius: 100px; padding: 8px 20px;
+        font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-secondary);
+    }
+    .tool-count-bar span { color: var(--cyan); font-weight: bold; font-size: 1rem; }
+
+    /* DISCLAIMER BANNER */
+    .disclaimer {
+        margin: 40px 0;
+        background: linear-gradient(135deg, rgba(255,145,0,0.06) 0%, rgba(255,23,68,0.04) 100%);
+        border: 1px solid rgba(255,145,0,0.25);
+        border-left: 3px solid var(--orange);
+        border-radius: 8px; padding: 20px 24px;
+        display: flex; gap: 16px; align-items: flex-start;
+    }
+    .disclaimer-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 2px; }
+    .disclaimer-text h4 {
+        font-family: var(--font-display); font-size: 0.78rem; font-weight: 700;
+        letter-spacing: 0.08em; color: var(--orange); margin-bottom: 6px;
+    }
+    .disclaimer-text p { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; }
+
+    /* TOOL CARDS */
+    .tools-list { display: flex; flex-direction: column; gap: 60px; margin-bottom: 80px; }
+
+    .tool-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        overflow: hidden;
+        transition: border-color 0.4s ease, box-shadow 0.4s ease;
+        position: relative;
+    }
+    .tool-card::before {
+        content: '';
+        position: absolute; top: 0; left: 0; right: 0; height: 2px;
+        background: var(--tool-accent, var(--cyan));
+        opacity: 0.8;
+    }
+    .tool-card:hover {
+        border-color: var(--border-hover);
+        box-shadow: 0 24px 60px rgba(0,0,0,0.5), 0 0 40px var(--cyan-subtle);
+    }
+
+    /* Card Header */
+    .tool-header {
+        padding: 32px 36px 28px;
+        display: flex; align-items: flex-start; gap: 20px;
+        border-bottom: 1px solid var(--border);
+        flex-wrap: wrap;
+    }
+    .tool-icon-box {
+        width: 64px; height: 64px; border-radius: 12px;
+        background: var(--tool-icon-bg, rgba(0,229,255,0.08));
+        border: 1px solid var(--tool-accent, var(--cyan));
+        display: flex; align-items: center; justify-content: center;
+        font-size: 2rem; flex-shrink: 0;
+        box-shadow: 0 0 20px var(--tool-accent-glow, var(--cyan-glow));
+    }
+    .tool-header-info { flex: 1; min-width: 200px; }
+    .tool-version {
+        font-family: var(--font-mono); font-size: 0.65rem; color: var(--text-muted);
+        letter-spacing: 0.15em; margin-bottom: 6px;
+    }
+    .tool-name {
+        font-family: var(--font-display); font-size: clamp(1.4rem, 3vw, 2rem);
+        font-weight: 900; letter-spacing: 0.06em;
+        color: var(--text-primary); margin-bottom: 8px; line-height: 1.1;
+    }
+    .tool-name .accent { color: var(--tool-accent, var(--cyan)); }
+    .tool-tagline { font-size: 0.9rem; color: var(--text-secondary); }
+
+    .tool-badges { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+    .badge {
+        font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.1em;
+        padding: 3px 10px; border-radius: 3px; border: 1px solid;
+    }
+    .badge-green { color: var(--green); border-color: rgba(0,230,118,0.3); background: rgba(0,230,118,0.05); }
+    .badge-blue { color: var(--cyan); border-color: rgba(0,229,255,0.3); background: rgba(0,229,255,0.05); }
+    .badge-orange { color: var(--orange); border-color: rgba(255,145,0,0.3); background: rgba(255,145,0,0.05); }
+    .badge-red { color: var(--red); border-color: rgba(255,23,68,0.3); background: rgba(255,23,68,0.05); }
+    .badge-purple { color: var(--purple); border-color: rgba(213,0,249,0.3); background: rgba(213,0,249,0.05); }
+
+    .tool-action-btns { display: flex; gap: 10px; flex-wrap: wrap; align-items: flex-start; margin-left: auto; }
+    .btn {
+        display: inline-flex; align-items: center; gap: 7px;
+        padding: 10px 18px; border-radius: 6px; font-family: var(--font-display);
+        font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em;
+        text-decoration: none; border: 1px solid; cursor: pointer;
+        transition: all 0.3s ease; white-space: nowrap;
+    }
+    .btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+    .btn-github { color: var(--text-primary); border-color: rgba(232,244,248,0.25); background: rgba(232,244,248,0.05); }
+    .btn-github:hover { background: rgba(232,244,248,0.12); box-shadow: 0 0 16px rgba(232,244,248,0.15); transform: translateY(-2px); }
+    .btn-video { color: var(--red); border-color: rgba(255,23,68,0.35); background: rgba(255,23,68,0.06); }
+    .btn-video:hover { background: var(--red); color: white; box-shadow: 0 0 20px var(--red-glow); transform: translateY(-2px); }
+    .btn-site { color: var(--cyan); border-color: rgba(0,229,255,0.35); background: rgba(0,229,255,0.06); }
+    .btn-site:hover { background: var(--cyan); color: var(--bg-dark); box-shadow: 0 0 20px var(--cyan-glow); transform: translateY(-2px); }
+    .btn-soon { color: var(--text-muted); border-color: var(--border); background: transparent; cursor: not-allowed; opacity: 0.5; }
+
+    /* Card Body — tabs */
+    .tool-body { padding: 0; }
+    .tab-nav {
+        display: flex; gap: 0;
+        border-bottom: 1px solid var(--border);
+        overflow-x: auto; scrollbar-width: none;
+    }
+    .tab-nav::-webkit-scrollbar { display: none; }
+    .tab-btn {
+        padding: 14px 22px; font-family: var(--font-mono); font-size: 0.72rem;
+        letter-spacing: 0.1em; color: var(--text-muted); background: none;
+        border: none; border-bottom: 2px solid transparent; cursor: pointer;
+        transition: all 0.3s ease; white-space: nowrap; flex-shrink: 0;
+    }
+    .tab-btn:hover { color: var(--text-secondary); }
+    .tab-btn.active { color: var(--tool-accent, var(--cyan)); border-bottom-color: var(--tool-accent, var(--cyan)); }
+
+    .tab-pane { display: none; padding: 30px 36px; }
+    .tab-pane.active { display: block; }
+
+    /* Overview tab */
+    .overview-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+    .overview-section h4 {
+        font-family: var(--font-display); font-size: 0.72rem; font-weight: 600;
+        letter-spacing: 0.12em; color: var(--tool-accent, var(--cyan));
+        margin-bottom: 14px; padding-bottom: 8px;
+        border-bottom: 1px solid var(--border);
+    }
+    .overview-section p { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 10px; }
+    .feature-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .feature-list li {
+        display: flex; align-items: flex-start; gap: 10px;
+        font-size: 0.86rem; color: var(--text-secondary); line-height: 1.5;
+    }
+    .feature-list li::before {
+        content: '▸'; color: var(--tool-accent, var(--cyan)); flex-shrink: 0; margin-top: 1px;
+    }
+    .platform-list { display: flex; flex-wrap: wrap; gap: 8px; }
+    .platform-tag {
+        font-family: var(--font-mono); font-size: 0.68rem; padding: 4px 12px;
+        border-radius: 3px; background: rgba(0,229,255,0.05);
+        border: 1px solid var(--border); color: var(--text-secondary);
+    }
+
+    /* Install tab */
+    .install-steps { display: flex; flex-direction: column; gap: 20px; }
+    .install-step { display: flex; gap: 16px; align-items: flex-start; }
+    .step-num {
+        width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0;
+        background: var(--tool-accent, var(--cyan)); color: var(--bg-dark);
+        font-family: var(--font-display); font-size: 0.65rem; font-weight: 800;
+        display: flex; align-items: center; justify-content: center;
+        box-shadow: 0 0 10px var(--tool-accent-glow, var(--cyan-glow));
+    }
+    .step-content { flex: 1; }
+    .step-content h5 {
+        font-family: var(--font-display); font-size: 0.72rem; font-weight: 600;
+        letter-spacing: 0.08em; color: var(--text-primary); margin-bottom: 8px;
+    }
+    .code-block {
+        background: rgba(0,0,0,0.5); border: 1px solid var(--border);
+        border-radius: 6px; padding: 14px 18px; position: relative;
+        margin-bottom: 6px;
+    }
+    .code-block pre {
+        font-family: var(--font-mono); font-size: 0.82rem; color: var(--green);
+        white-space: pre-wrap; word-break: break-all; line-height: 1.6;
+    }
+    .copy-btn {
+        position: absolute; top: 8px; right: 10px;
+        font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.1em;
+        color: var(--text-muted); background: none; border: 1px solid var(--border);
+        border-radius: 3px; padding: 3px 8px; cursor: pointer; transition: all 0.2s ease;
+    }
+    .copy-btn:hover { color: var(--cyan); border-color: var(--cyan); }
+    .step-note { font-size: 0.78rem; color: var(--text-muted); margin-top: 4px; font-family: var(--font-mono); }
+
+    /* Templates tab (evil-eye) */
+    .templates-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 14px; }
+    .template-card {
+        background: rgba(0,0,0,0.3); border: 1px solid var(--border);
+        border-radius: 8px; padding: 18px;
+        transition: all 0.3s ease;
+    }
+    .template-card:hover { border-color: var(--border-hover); background: var(--bg-card-2); }
+    .template-num { font-family: var(--font-mono); font-size: 0.65rem; color: var(--cyan-dim); margin-bottom: 6px; }
+    .template-name { font-family: var(--font-display); font-size: 0.78rem; font-weight: 600; color: var(--text-primary); margin-bottom: 6px; letter-spacing: 0.04em; }
+    .template-desc { font-size: 0.78rem; color: var(--text-secondary); line-height: 1.5; }
+
+    /* Disclaimer tab */
+    .legal-box {
+        background: linear-gradient(135deg, rgba(255,23,68,0.05) 0%, rgba(255,145,0,0.04) 100%);
+        border: 1px solid rgba(255,23,68,0.2); border-radius: 8px; padding: 24px;
+        margin-bottom: 20px;
+    }
+    .legal-box h4 {
+        font-family: var(--font-display); font-size: 0.78rem; font-weight: 700;
+        letter-spacing: 0.1em; color: var(--red); margin-bottom: 12px;
+    }
+    .legal-box ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .legal-box ul li { font-size: 0.86rem; color: var(--text-secondary); padding-left: 16px; position: relative; line-height: 1.6; }
+    .legal-box ul li::before { content: '⚠'; position: absolute; left: 0; font-size: 0.7rem; }
+
+    /* COMING SOON card */
+    .tool-card-coming {
+        background: var(--bg-card);
+        border: 1px dashed var(--border);
+        border-radius: 16px; padding: 40px;
+        text-align: center; opacity: 0.5;
+    }
+    .coming-icon { font-size: 2.5rem; margin-bottom: 14px; color: var(--text-muted); }
+    .coming-title { font-family: var(--font-display); font-size: 0.85rem; font-weight: 600; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 6px; }
+    .coming-sub { font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted); }
+
+    /* FOOTER */
+    .page-footer {
+        background: var(--bg-card); border-top: 1px solid var(--border);
+        padding: 30px 0; text-align: center; position: relative; z-index: 2;
+    }
+    .page-footer::before {
+        content: '';
+        position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+        width: 30%; height: 1px;
+        background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+    }
+    .footer-logo { font-family: var(--font-display); font-size: 1.1rem; font-weight: 900; letter-spacing: 0.1em; margin-bottom: 6px; }
+    .footer-logo .accent { color: var(--cyan); }
+    .footer-copy { font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-muted); }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .hero { animation: fadeUp 0.7s ease both; }
+    .disclaimer { animation: fadeUp 0.7s 0.1s ease both; }
+    .tool-card { animation: fadeUp 0.8s ease both; }
+    .tool-card:nth-child(2) { animation-delay: 0.15s; }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+        .container { padding: 0 16px; }
+        .tool-header { padding: 22px 20px 18px; gap: 14px; }
+        .overview-grid { grid-template-columns: 1fr; }
+        .tab-pane { padding: 22px 20px; }
+        .tool-action-btns { margin-left: 0; }
+        .header-right { display: none; }
+    }
+    @media (max-width: 480px) {
+        .hero { padding: 50px 0 30px; }
+        .btn { padding: 8px 12px; font-size: 0.65rem; }
+        .templates-grid { grid-template-columns: 1fr 1fr; }
+    }
+    </style>
+</head>
+<body>
+
+<div class="bg-grid"></div>
+<div class="scanlines"></div>
+
+<!-- ============================================================
+     HEADER
+     ============================================================ -->
+<header class="header">
+    <div class="header-glow"></div>
+    <div class="container">
+        <div class="header-inner">
+            <div class="header-left">
+                <a href="../" class="back-btn" aria-label="Back to home">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+                    HOME
+                </a>
+                <img src="../image/rg.png" alt="RG Security Logo" class="logo-mini">
+                <span class="header-brand">RG SECURITY TEAM</span>
+            </div>
+            <div class="header-right">// tools/</div>
+        </div>
+    </div>
+</header>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<main>
+<section class="hero">
+    <div class="container">
+        <div class="hero-tag">// OPEN SOURCE ARSENAL</div>
+        <h1 class="hero-title">Our <span class="accent">Security</span> Tools</h1>
+        <p class="hero-desc">
+            Open-source cybersecurity tools built by RG Security Team.
+            Designed for educational research and authorized penetration testing.
+        </p>
+        <div class="tool-count-bar">
+            <span id="toolCount">2</span> Active Tools
+            &nbsp;·&nbsp; 100% Open Source
+            &nbsp;·&nbsp; Kali Linux Tested
+        </div>
+    </div>
+</section>
+
+<!-- GLOBAL DISCLAIMER -->
+<div class="container">
+    <div class="disclaimer">
+        <div class="disclaimer-icon">⚠️</div>
+        <div class="disclaimer-text">
+            <h4>EDUCATIONAL USE ONLY — AUTHORIZED ACCESS REQUIRED</h4>
+            <p>All tools on this page are created strictly for cybersecurity education, research, and authorized penetration testing. Using these tools against any system or individual without explicit written permission is illegal and unethical. The RG Security Team bears no responsibility for any misuse or damage caused by these tools. By accessing this page you agree to use all information responsibly and lawfully.</p>
+        </div>
+    </div>
+</div>
+
+<!-- ============================================================
+     TOOLS LIST
+     ============================================================ -->
+<div class="container">
+<div class="tools-list">
+
+    <!-- ======================================================
+         TOOL 1 — FALCON HIJACKER
+         TO UPDATE: Edit content inside this .tool-card div
+         ====================================================== -->
+    <article class="tool-card" style="--tool-accent: #00e5ff; --tool-accent-glow: rgba(0,229,255,0.3); --tool-icon-bg: rgba(0,229,255,0.06);" id="falcon-hijacker">
+        <div class="tool-header">
+            <div class="tool-icon-box">🦅</div>
+            <div class="tool-header-info">
+                <div class="tool-version">v0.1 · MIT LICENSE · SHELL / PHP / POWERSHELL</div>
+                <h2 class="tool-name"><span class="accent">FALCON</span>-HIJACKER</h2>
+                <p class="tool-tagline">Automated Clipboard Data Capture &amp; Monitoring Tool</p>
+                <div class="tool-badges">
+                    <span class="badge badge-blue">CLIPBOARD MONITOR</span>
+                    <span class="badge badge-green">KALI LINUX</span>
+                    <span class="badge badge-orange">WINDOWS PAYLOAD</span>
+                    <span class="badge badge-blue">REAL-TIME</span>
+                </div>
+            </div>
+            <div class="tool-action-btns">
+                <a href="https://github.com/rgsecteam/falcon-hijacker" target="_blank" rel="noopener noreferrer" class="btn btn-github">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    GitHub
+                </a>
+                <a href="https://youtu.be/F2320sUPvbI" target="_blank" rel="noopener noreferrer" class="btn btn-video">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                    Tutorial
+                </a>
+            </div>
+        </div>
+
+        <div class="tool-body">
+            <div class="tab-nav" id="falcon-tabs">
+                <button class="tab-btn active" onclick="switchTab(this, 'falcon-overview')">▸ OVERVIEW</button>
+                <button class="tab-btn" onclick="switchTab(this, 'falcon-install')">▸ INSTALLATION</button>
+                <button class="tab-btn" onclick="switchTab(this, 'falcon-usage')">▸ USAGE GUIDE</button>
+                <button class="tab-btn" onclick="switchTab(this, 'falcon-legal')">▸ DISCLAIMER</button>
+            </div>
+
+            <!-- OVERVIEW -->
+            <div class="tab-pane active" id="falcon-overview">
+                <div class="overview-grid">
+                    <div class="overview-section">
+                        <h4>WHAT IS FALCON HIJACKER?</h4>
+                        <p>Falcon Hijacker is a professional clipboard monitoring tool designed for authorized security assessments. It captures real-time clipboard data from target systems through a streamlined Bash interface running on Linux, with a PowerShell payload deployed on Windows targets.</p>
+                        <p>The tool sets up a local PHP web server and delivers a stealthy PowerShell payload that silently monitors and transmits clipboard content every 10 seconds — including text, passwords, crypto addresses, and more.</p>
+                    </div>
+                    <div class="overview-section">
+                        <h4>KEY FEATURES</h4>
+                        <ul class="feature-list">
+                            <li>Live clipboard data streaming in real-time</li>
+                            <li>Timestamped structured logging with metadata</li>
+                            <li>PowerShell payload — no visible window, error suppression</li>
+                            <li>Checks clipboard every 10 seconds automatically</li>
+                            <li>Sends clipboard content + machine info + username</li>
+                            <li>Clean log export format for analysis</li>
+                            <li>Simple one-command setup on Linux</li>
+                        </ul>
+                    </div>
+                    <div class="overview-section">
+                        <h4>SUPPORTED PLATFORMS</h4>
+                        <div class="platform-list">
+                            <span class="platform-tag">✅ Kali Linux</span>
+                            <span class="platform-tag">✅ Parrot Sec OS</span>
+                            <span class="platform-tag">⚙️ Termux (untested)</span>
+                            <span class="platform-tag">🎯 Windows (target)</span>
+                        </div>
+                    </div>
+                    <div class="overview-section">
+                        <h4>TECH STACK</h4>
+                        <div class="platform-list">
+                            <span class="platform-tag">Bash Shell</span>
+                            <span class="platform-tag">PHP (web server)</span>
+                            <span class="platform-tag">PowerShell</span>
+                            <span class="platform-tag">wget</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- INSTALLATION -->
+            <div class="tab-pane" id="falcon-install">
+                <div class="install-steps">
+                    <div class="install-step">
+                        <div class="step-num">01</div>
+                        <div class="step-content">
+                            <h5>INSTALL DEPENDENCIES</h5>
+                            <div class="code-block">
+                                <pre>apt-get -y install php wget</pre>
+                                <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+                            </div>
+                            <p class="step-note">// Required: PHP for web server, wget for downloading dependencies</p>
+                        </div>
+                    </div>
+                    <div class="install-step">
+                        <div class="step-num">02</div>
+                        <div class="step-content">
+                            <h5>CLONE THE REPOSITORY</h5>
+                            <div class="code-block">
+                                <pre>git clone https://github.com/rgsecteam/falcon-hijacker</pre>
+                                <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="install-step">
+                        <div class="step-num">03</div>
+                        <div class="step-content">
+                            <h5>NAVIGATE &amp; RUN</h5>
+                            <div class="code-block">
+                                <pre>cd falcon-hijacker
+bash falcon.sh</pre>
+                                <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- USAGE GUIDE -->
+            <div class="tab-pane" id="falcon-usage">
+                <div class="install-steps">
+                    <div class="install-step">
+                        <div class="step-num">01</div>
+                        <div class="step-content">
+                            <h5>DEPLOY POWERSHELL PAYLOAD ON TARGET (WINDOWS)</h5>
+                            <div class="code-block">
+                                <pre>powershell -NoP -NonI -W h -Exec Bypass .\clipboard_logger.ps1</pre>
+                                <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+                            </div>
+                            <p class="step-note">// Runs the payload — checks clipboard every 10s, sends to your listener</p>
+                        </div>
+                    </div>
+                    <div class="install-step">
+                        <div class="step-num">02</div>
+                        <div class="step-content">
+                            <h5>HIDDEN EXECUTION (BACKGROUND)</h5>
+                            <div class="code-block">
+                                <pre>Start-Process powershell -ArgumentList "-NoProfile -ExecutionPolicy Bypass -File .\clipboard_logger.ps1" -WindowStyle Hidden</pre>
+                                <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+                            </div>
+                            <p class="step-note">// Runs completely hidden — no terminal window visible to the target</p>
+                        </div>
+                    </div>
+                    <div class="install-step">
+                        <div class="step-num">03</div>
+                        <div class="step-content">
+                            <h5>STOP THE BACKGROUND PROCESS</h5>
+                            <div class="code-block">
+                                <pre>Stop-Process -Name powershell -Force</pre>
+                                <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+                            </div>
+                            <p class="step-note">// Run on the Windows target to kill all powershell background processes</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DISCLAIMER -->
+            <div class="tab-pane" id="falcon-legal">
+                <div class="legal-box">
+                    <h4>⚠ LEGAL &amp; ETHICAL NOTICE</h4>
+                    <ul>
+                        <li>Use this tool only for defensive, educational, or research purposes in controlled environments</li>
+                        <li>Always obtain explicit written permission before testing on any system you do not own</li>
+                        <li>Follow all applicable local, national, and international laws and organizational policies</li>
+                        <li>Unauthorized use of this tool to capture data is a criminal offense in most jurisdictions</li>
+                        <li>The RG Security Team bears no responsibility for any misuse, damage, or legal consequences</li>
+                    </ul>
+                </div>
+                <p style="font-size:0.82rem; color: var(--text-muted); font-family: var(--font-mono);">
+                    Licensed under MIT. By cloning or using this repository you accept full responsibility for your actions.
+                </p>
+            </div>
+        </div>
+    </article>
+
+
+    <!-- ======================================================
+         TOOL 2 — EVIL-EYE
+         TO UPDATE: Edit content inside this .tool-card div
+         ====================================================== -->
+    <article class="tool-card" style="--tool-accent: #ff1744; --tool-accent-glow: rgba(255,23,68,0.3); --tool-icon-bg: rgba(255,23,68,0.05);" id="evil-eye">
+        <div class="tool-header">
+            <div class="tool-icon-box">👁</div>
+            <div class="tool-header-info">
+                <div class="tool-version">v0.1 · GPL-3.0 LICENSE · BASH / PHP / JS</div>
+                <h2 class="tool-name"><span class="accent">EVIL</span>-EYE</h2>
+                <p class="tool-tagline">Silent Camera Capture Framework via Social Engineering</p>
+                <div class="tool-badges">
+                    <span class="badge badge-red">CAMERA PHISHING</span>
+                    <span class="badge badge-green">CLOUDFLARE TUNNEL</span>
+                    <span class="badge badge-purple">5 TEMPLATES</span>
+                    <span class="badge badge-orange">CROSS-DISTRO</span>
+                </div>
+            </div>
+            <div class="tool-action-btns">
+                <a href="https://github.com/rgsecteam/evil-eye" target="_blank" rel="noopener noreferrer" class="btn btn-github">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    GitHub
+                </a>
+                <span class="btn btn-soon" title="Video tutorial coming soon">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                    Tutorial Soon
+                </span>
+                <a href="https://romeomurmu.github.io/evel-eye-website/" target="_blank" rel="noopener noreferrer" class="btn btn-site">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                    Live Site
+                </a>
+            </div>
+        </div>
+
+        <div class="tool-body">
+            <div class="tab-nav">
+                <button class="tab-btn active" onclick="switchTab(this, 'evil-overview')">▸ OVERVIEW</button>
+                <button class="tab-btn" onclick="switchTab(this, 'evil-install')">▸ INSTALLATION</button>
+                <button class="tab-btn" onclick="switchTab(this, 'evil-templates')">▸ TEMPLATES</button>
+                <button class="tab-btn" onclick="switchTab(this, 'evil-legal')">▸ DISCLAIMER</button>
+            </div>
+
+            <!-- OVERVIEW -->
+            <div class="tab-pane active" id="evil-overview">
+                <div class="overview-grid">
+                    <div class="overview-section">
+                        <h4>WHAT IS EVIL-EYE?</h4>
+                        <p>Evil-Eye is a modular, Bash-based camera phishing framework designed for security awareness demonstrations and authorized penetration testing. It automates a local PHP server and uses Cloudflare's encrypted tunnel to generate a public HTTPS link — no port forwarding required.</p>
+                        <p>When a victim opens the link and grants camera permission, their front camera is silently captured and saved along with their IP address and browser info.</p>
+                    </div>
+                    <div class="overview-section">
+                        <h4>KEY FEATURES</h4>
+                        <ul class="feature-list">
+                            <li>Silent camera capture via browser getUserMedia API</li>
+                            <li>Instant public HTTPS link via Cloudflare tunnel</li>
+                            <li>5 convincing social engineering lure templates</li>
+                            <li>Logs victim IP address and browser user-agent</li>
+                            <li>Auto dependency detection and installation</li>
+                            <li>Cross-distro: Kali, Parrot, Ubuntu, macOS</li>
+                            <li>Images saved as <code style="color:var(--green);font-family:var(--font-mono)">cam&lt;timestamp&gt;.jpg</code></li>
+                        </ul>
+                    </div>
+                    <div class="overview-section">
+                        <h4>SUPPORTED PLATFORMS</h4>
+                        <div class="platform-list">
+                            <span class="platform-tag">✅ Kali Linux 2024.x</span>
+                            <span class="platform-tag">✅ Parrot OS 6.x</span>
+                            <span class="platform-tag">✅ Ubuntu 22/24.04</span>
+                            <span class="platform-tag">✅ macOS Ventura+</span>
+                            <span class="platform-tag">🔜 Termux (Coming Soon)</span>
+                        </div>
+                    </div>
+                    <div class="overview-section">
+                        <h4>CAPTURED DATA</h4>
+                        <div class="platform-list">
+                            <span class="platform-tag">📷 cam&lt;timestamp&gt;.jpg</span>
+                            <span class="platform-tag">🌐 captured_ip.txt</span>
+                            <span class="platform-tag">🖥 Browser UA</span>
+                        </div>
+                        <br>
+                        <h4>TECH STACK</h4>
+                        <div class="platform-list">
+                            <span class="platform-tag">Bash</span>
+                            <span class="platform-tag">PHP 7.4+</span>
+                            <span class="platform-tag">JavaScript</span>
+                            <span class="platform-tag">Cloudflared</span>
+                            <span class="platform-tag">CSS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- INSTALLATION -->
+            <div class="tab-pane" id="evil-install">
+                <div class="install-steps">
+                    <div class="install-step">
+                        <div class="step-num">01</div>
+                        <div class="step-content">
+                            <h5>CLONE THE REPOSITORY</h5>
+                            <div class="code-block">
+                                <pre>git clone https://github.com/rgsecteam/evil-eye.git</pre>
+                                <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="install-step">
+                        <div class="step-num">02</div>
+                        <div class="step-content">
+                            <h5>NAVIGATE TO DIRECTORY</h5>
+                            <div class="code-block">
+                                <pre>cd evil-eye</pre>
+                                <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="install-step">
+                        <div class="step-num">03</div>
+                        <div class="step-content">
+                            <h5>GIVE EXECUTION PERMISSION</h5>
+                            <div class="code-block">
+                                <pre>chmod +x evel.sh</pre>
+                                <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="install-step">
+                        <div class="step-num">04</div>
+                        <div class="step-content">
+                            <h5>RUN THE TOOL</h5>
+                            <div class="code-block">
+                                <pre>./evel.sh</pre>
+                                <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+                            </div>
+                            <p class="step-note">// cloudflared and lolcat will be installed automatically if not found</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TEMPLATES -->
+            <div class="tab-pane" id="evil-templates">
+                <div class="templates-grid">
+                    <div class="template-card">
+                        <div class="template-num">// TEMPLATE 01</div>
+                        <div class="template-name">YouTube Live TV</div>
+                        <div class="template-desc">Fake YouTube Live stream. Victim must "verify age" to watch — camera triggered automatically.</div>
+                    </div>
+                    <div class="template-card">
+                        <div class="template-num">// TEMPLATE 02</div>
+                        <div class="template-name">Birthday Wish</div>
+                        <div class="template-desc">Personalized birthday page with animations and music. Camera permission requested for a "selfie".</div>
+                    </div>
+                    <div class="template-card">
+                        <div class="template-num">// TEMPLATE 03</div>
+                        <div class="template-name">Secret Message</div>
+                        <div class="template-desc">Mysterious page claiming a secret message awaits. Camera triggered silently in the background.</div>
+                    </div>
+                    <div class="template-card">
+                        <div class="template-num">// TEMPLATE 04</div>
+                        <div class="template-name">Fake Instagram</div>
+                        <div class="template-desc">Promises free Instagram followers — "camera verification required to prove you're human".</div>
+                    </div>
+                    <div class="template-card">
+                        <div class="template-num">// TEMPLATE 05</div>
+                        <div class="template-name">AI Chatbot</div>
+                        <div class="template-desc">Fake AI assistant interface. Camera access requested in the background during interaction.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DISCLAIMER -->
+            <div class="tab-pane" id="evil-legal">
+                <div class="legal-box">
+                    <h4>⚠ LEGAL &amp; ETHICAL NOTICE</h4>
+                    <ul>
+                        <li>This tool is developed strictly for educational purposes and authorized penetration testing only</li>
+                        <li>Using this tool to capture images from any person without their explicit written consent is illegal</li>
+                        <li>Unauthorized deployment constitutes illegal surveillance and privacy violation under most national laws</li>
+                        <li>The RG Security Team is not responsible for any misuse, damage, or legal consequences</li>
+                        <li>By using this tool you accept that you are solely responsible for your own actions</li>
+                        <li>Always operate only in controlled, authorized test environments</li>
+                    </ul>
+                </div>
+                <p style="font-size:0.82rem; color: var(--text-muted); font-family: var(--font-mono);">
+                    Licensed under GPL-3.0. Inspired by CamPhish by techchipnet. Camera engine adapted from wybiral/tiny-mirror.
+                </p>
+            </div>
+        </div>
+    </article>
+
+
+    <!-- ======================================================
+         COMING SOON PLACEHOLDER
+         TO ADD A NEW TOOL: Copy one of the tool-card blocks above,
+         paste it here, and replace this coming-soon div.
+         Update: id, --tool-accent color, icon, name, badges, tabs content
+         ====================================================== -->
+    <div class="tool-card-coming">
+        <div class="coming-icon">⬡</div>
+        <div class="coming-title">MORE TOOLS COMING SOON</div>
+        <div class="coming-sub">// next release in progress...</div>
+    </div>
+
+</div><!-- /.tools-list -->
+</div><!-- /.container -->
+</main>
+
+<!-- FOOTER -->
+<footer class="page-footer">
+    <div class="container">
+        <div class="footer-logo">RG<span class="accent">SEC</span></div>
+        <p class="footer-copy">&copy; 2026 RGSecurityTeam · All tools are for educational use only · <a href="https://github.com/rgsecteam" target="_blank" rel="noopener noreferrer" style="color:var(--cyan);text-decoration:none">github.com/rgsecteam</a></p>
+    </div>
+</footer>
+
+<script>
+// ============================================================
+// TAB SWITCHING
+// ============================================================
+function switchTab(btn, paneId) {
+    // Find the parent tab-nav and deactivate all buttons in it
+    const tabNav = btn.closest('.tab-nav') || btn.parentElement;
+    tabNav.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    // Find the parent tool-card and hide all panes in it
+    const card = btn.closest('.tool-card');
+    card.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+    document.getElementById(paneId).classList.add('active');
+}
+
+// ============================================================
+// COPY CODE BUTTONS
+// ============================================================
+function copyCode(btn) {
+    const pre = btn.previousElementSibling;
+    navigator.clipboard.writeText(pre.textContent.trim()).then(() => {
+        const orig = btn.textContent;
+        btn.textContent = 'COPIED!';
+        btn.style.color = 'var(--green)';
+        btn.style.borderColor = 'var(--green)';
+        setTimeout(() => {
+            btn.textContent = orig;
+            btn.style.color = '';
+            btn.style.borderColor = '';
+        }, 1800);
+    });
+}
+
+// ============================================================
+// UPDATE TOOL COUNT (auto-counts tool-card articles)
+// ============================================================
+document.addEventListener('DOMContentLoaded', () => {
+    const count = document.querySelectorAll('article.tool-card').length;
+    const el = document.getElementById('toolCount');
+    if (el) el.textContent = count;
+});
+</script>
+</body>
+</html>
