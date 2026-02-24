@@ -3,61 +3,257 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="RGSecurityTeam offical website">
-    <meta name="keywords" content="rgsecteam, rgsectm, rgsecurityteam, RGSecurityTeam, RGSecTeam, RGSecTm, rgsecirotyteam official, rgsectm offical, Falcon Hijacker, clipboard hijacker, Kali Linux, hacking tools, cybersecurity">
-    <title>RG Security - Cybersecurity & Ethical Hacking</title>
-    <link rel="stylesheet" href="css/style.css">
+
+    <!-- ============================================================
+         PRIMARY SEO META TAGS
+         ============================================================ -->
+    <title>RG Security Team | Cybersecurity & Ethical Hacking Tutorials</title>
+    <meta name="description" content="RG Security Team — Your trusted source for cybersecurity tutorials, ethical hacking tools, Kali Linux guides, and digital privacy tips. Learn offensive and defensive security techniques.">
+    <meta name="keywords" content="RGSecurityTeam, RGSecTeam, ethical hacking, cybersecurity tutorials, Kali Linux, penetration testing, hacking tools, network security, digital privacy, cybersecurity YouTube channel">
+    <meta name="author" content="RG Security Team">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <link rel="canonical" href="https://rgsecteam.github.io/">
+
+    <!-- ============================================================
+         OPEN GRAPH (Facebook, LinkedIn, WhatsApp preview)
+         ============================================================ -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="RG Security Team | Cybersecurity & Ethical Hacking">
+    <meta property="og:description" content="Learn cybersecurity, ethical hacking, Kali Linux, and digital privacy with RG Security Team. Expert tutorials for beginners and professionals.">
+    <meta property="og:url" content="https://rgsecteam.github.io/">
+    <meta property="og:site_name" content="RG Security Team">
+    <meta property="og:image" content="https://rgsecteam.github.io/image/rg.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="en_US">
+
+    <!-- ============================================================
+         TWITTER CARD
+         ============================================================ -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="RG Security Team | Cybersecurity & Ethical Hacking">
+    <meta name="twitter:description" content="Learn cybersecurity, ethical hacking, Kali Linux, and digital privacy with RG Security Team.">
+    <meta name="twitter:image" content="https://rgsecteam.github.io/image/rg.png">
+
+    <!-- ============================================================
+         STRUCTURED DATA (JSON-LD) — Helps Google understand content
+         ============================================================ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "RG Security Team",
+      "url": "https://rgsecteam.github.io/",
+      "logo": "https://rgsecteam.github.io/image/rg.png",
+      "description": "Cybersecurity and ethical hacking tutorials, tools, and guides.",
+      "sameAs": [
+        "https://www.facebook.com/RGSecTeam",
+        "https://youtube.com/@RGSecurityTeam",
+        "https://www.instagram.com/rgsecuritytam/",
+        "https://github.com/rgsecteam"
+      ]
+    }
+    </script>
+
+    <!-- ============================================================
+         FAVICONS
+         ============================================================ -->
     <link rel="apple-touch-icon" sizes="180x180" href="image/favicon_io/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="image/favicon_io/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="image/favicon_io/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
+
+    <!-- ============================================================
+         GOOGLE FONTS — Orbitron (futuristic display) + Share Tech Mono
+         ============================================================ -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Share+Tech+Mono&family=Exo+2:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header class="header">
+
+    <!-- ============================================================
+         BACKGROUND EFFECTS
+         ============================================================ -->
+    <div class="bg-grid"></div>
+    <div class="scanlines"></div>
+    <canvas id="particleCanvas"></canvas>
+
+    <!-- ============================================================
+         HEADER
+         ============================================================ -->
+    <header class="header" role="banner">
+        <div class="header-glow"></div>
         <div class="container">
             <div class="header-content">
-                <img 
-                    src="image/rg.png" 
-                    alt="RG Security Logo" 
-                    class="logo" loading="lazy"
-                />
-                <div class="brand-info">
-                    <h1 class="brand-title">RG SECURITY TEAM</h1>
-                    <p class="brand-subtitle">Cybersecurity & Ethical Hacking</p>
+                <div class="logo-wrapper">
+                    <div class="logo-ring"></div>
+                    <img src="image/rg.png" alt="RG Security Team Logo" class="logo" loading="eager" width="90" height="90">
                 </div>
+                <div class="brand-info">
+                    <div class="brand-tag">&lt;/&gt; EST. 2024</div>
+                    <h1 class="brand-title">RG SECURITY TEAM</h1>
+                    <p class="brand-subtitle">
+                        <span class="typing-text" id="typingText"></span><span class="cursor">_</span>
+                    </p>
+                </div>
+                <nav class="header-nav" aria-label="Site Navigation">
+                    <a href="tools/" class="nav-pill tools" aria-label="Tools">
+                        <svg viewBox="0 0 24 24" fill="currentColor" style="width:15px;height:15px"><path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/></svg>
+                        Tools
+                    </a>
+                    <a href="https://youtube.com/@RGSecurityTeam" target="_blank" rel="noopener noreferrer" class="nav-pill yt" aria-label="YouTube">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a2.974 2.974 0 0 0-2.094-2.106C19.505 3.5 12 3.5 12 3.5s-7.505 0-9.404.58A2.974 2.974 0 0 0 .502 6.186 30.16 30.16 0 0 0 0 12a30.16 30.16 0 0 0 .502 5.814 2.974 2.974 0 0 0 2.094 2.106C4.495 20.5 12 20.5 12 20.5s7.505 0 9.404-.58a2.974 2.974 0 0 0 2.094-2.106A30.16 30.16 0 0 0 24 12a30.16 30.16 0 0 0-.502-5.814zM9.75 15.5v-7l6 3.5-6 3.5z"/></svg>
+                        Subscribe
+                    </a>
+                </nav>
             </div>
         </div>
     </header>
-    <section class="video-section">
+
+    <!-- ============================================================
+         HERO STATS BAR
+         ============================================================ -->
+    <div class="stats-bar">
         <div class="container">
-            <h2 class="section-title">Latest Videos</h2>
-            <div class="video-slider">
-                <div class="video-container" id="videoContainer">
-                    <!-- Videos -->
+            <div class="stats-inner">
+                <div class="stat-item">
+                    <span class="stat-icon">▶</span>
+                    <span class="stat-value" data-target="6">45</span>
+                    <span class="stat-label">Videos</span>
                 </div>
-                <div class="slider-dots" id="sliderDots">
-                    <!-- Dots -->
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-icon">◈</span>
+                    <span class="stat-value">4</span>
+                    <span class="stat-label">Platforms</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-icon">⬡</span>
+                    <span class="stat-label">Cybersecurity & Ethical Hacking</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================================
+         VIDEO SECTION
+         ============================================================ -->
+    <main>
+    <section class="video-section" aria-label="Latest Videos">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">// LATEST CONTENT</div>
+                <h2 class="section-title">Latest <span class="accent">Videos</span></h2>
+                <p class="section-sub">Explore our latest cybersecurity tutorials and hacking demonstrations</p>
+            </div>
+
+            <div class="video-slider-wrapper">
+                <div class="video-slider">
+                    <div class="video-container" id="videoContainer" role="list" aria-label="Video slider">
+                        <!-- Videos injected by script.js -->
+                    </div>
+                </div>
+
+                <!-- Slider Controls -->
+                <button class="slider-btn prev-btn" id="prevBtn" aria-label="Previous video">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+                </button>
+                <button class="slider-btn next-btn" id="nextBtn" aria-label="Next video">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+                </button>
+
+                <div class="slider-dots" id="sliderDots" role="tablist" aria-label="Video navigation dots">
+                    <!-- Dots injected by script.js -->
                 </div>
             </div>
         </div>
     </section>
-    <section class="contact-section">
+
+    <!-- ============================================================
+         ABOUT / TOPICS SECTION
+         ============================================================ -->
+    <section class="topics-section" aria-label="Topics We Cover">
         <div class="container">
-            <h2 class="section-title">Connect With Us</h2>
-            <p class="contact-description">
-                Follow us on social media for the latest cybersecurity updates and content
-            </p>
-            <div class="social-links" id="socialLinks">
-                <!-- Social links -->
+            <div class="section-header">
+                <div class="section-tag">// WHAT WE COVER</div>
+                <h2 class="section-title">Our <span class="accent">Topics</span></h2>
             </div>
-            <div class="footer">
-                <p>&copy; 2025 RGSecurityTeam. All rights reserved.</p>
+            <div class="topics-grid">
+                <div class="topic-card">
+                    <div class="topic-icon">⬡</div>
+                    <h3>Network Security</h3>
+                    <p>Wi-Fi attacks, DNS spoofing, MITM, packet analysis and defense</p>
+                </div>
+                <div class="topic-card">
+                    <div class="topic-icon">◎</div>
+                    <h3>Privacy & Anonymity</h3>
+                    <p>Tor, IP rotation, VPN setups, digital footprint reduction</p>
+                </div>
+                <div class="topic-card">
+                    <div class="topic-icon">▣</div>
+                    <h3>Ethical Hacking Tools</h3>
+                    <p>Kali Linux tools, exploitation frameworks, penetration testing</p>
+                </div>
+                <div class="topic-card">
+                    <div class="topic-icon">◈</div>
+                    <h3>Malware Analysis</h3>
+                    <p>RATs, payload generation, reverse engineering basics</p>
+                </div>
+                <div class="topic-card">
+                    <div class="topic-icon">⬟</div>
+                    <h3>OSINT & Recon</h3>
+                    <p>GPS tracking, camera phishing, information gathering techniques</p>
+                </div>
+                <div class="topic-card">
+                    <div class="topic-icon">◉</div>
+                    <h3>Security Defense</h3>
+                    <p>How to protect yourself against common cyber attacks</p>
+                </div>
             </div>
         </div>
     </section>
+
+    <!-- ============================================================
+         CONNECT / SOCIAL SECTION
+         ============================================================ -->
+    <section class="contact-section" aria-label="Connect With Us">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">// CONNECT</div>
+                <h2 class="section-title">Find Us <span class="accent">Online</span></h2>
+                <p class="section-sub">Follow for the latest cybersecurity updates, tools, and tutorials</p>
+            </div>
+            <div class="social-links" id="socialLinks" role="list">
+                <!-- Social links injected by script.js -->
+            </div>
+        </div>
+    </section>
+    </main>
+
+    <!-- ============================================================
+         FOOTER
+         ============================================================ -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-brand">
+                    <span class="footer-logo-text">RG<span class="accent">SEC</span></span>
+                    <p>Cybersecurity & Ethical Hacking</p>
+                </div>
+                <div class="footer-links">
+                    <a href="https://youtube.com/@RGSecurityTeam" target="_blank" rel="noopener noreferrer">YouTube</a>
+                    <a href="https://github.com/rgsecteam" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    <a href="https://www.facebook.com/RGSecTeam" target="_blank" rel="noopener noreferrer">Facebook</a>
+                </div>
+                <p class="footer-copy">&copy; 2026 RGSecurityTeam. All rights reserved. For educational purposes only.</p>
+            </div>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>
 </html>
-
-
