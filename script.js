@@ -79,7 +79,7 @@ const socialLinks = [
     },
     {
         platform: 'Instagram',
-        url: 'https://www.instagram.com/rgsecuritytam/',
+        url: 'https://www.instagram.com/rgsecurityteam/',
         icon: 'instagram',
         color: '#E4405F',
         glow: 'rgba(228,64,95,0.35)'
