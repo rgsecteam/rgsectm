@@ -4,4 +4,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://rgsecteam.github.io/sitemap.xml
+Sitemap: https://rgsecteam.github.io/rgsectm/sitemap.xml
