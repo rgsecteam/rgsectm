@@ -1,22 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
     <meta charset="UTF-8">
+    <script>document.documentElement.className = document.documentElement.className.replace('no-js','js');</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- ============================================================
          PRIMARY SEO META TAGS
-         ============================================================ -->
-    <title>RG Security Team | Cybersecurity & Ethical Hacking Tutorials</title>
-    <meta name="description" content="RG Security Team — Your trusted source for cybersecurity tutorials, ethical hacking tools, Kali Linux guides, and digital privacy tips. Learn offensive and defensive security techniques.">
-    <meta name="keywords" content="RGSecurityTeam, RGSecTeam, ethical hacking, cybersecurity tutorials, Kali Linux, penetration testing, hacking tools, network security, digital privacy, cybersecurity YouTube channel">
-    <meta name="author" content="RG Security Team">
+    ============================================================ -->
+    <title>RG Security Team | Cybersecurity, Ethical Hacking & Kali Linux Tutorials</title>
+        <meta name="description" content="RG Security Team — cybersecurity tutorials, ethical hacking tools, Kali Linux guides, WiFi hacking, OSINT, penetration testing and digital privacy. Hands-on attack walkthroughs with a defensive ending to every video.">
+        <meta name="keywords" content="RGSecurityTeam, RGSecTeam, ethical hacking, cybersecurity tutorials, Kali Linux, penetration testing, hacking tools, network security, digital privacy, wifi hacking, OSINT, network security, cybersecurity YouTube channel, bug bounty, hashcat, aircrack, cyber security tutorial, ethical hacker, ai security, phishing attack, malware analysis, how to hack">
+        <meta name="author" content="RG Security Team">
+        <meta name="theme-color" content="#060910">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <link rel="canonical" href="https://rgsecteam.github.io/rgsectm/">
 
     <!-- ============================================================
          OPEN GRAPH (Facebook, LinkedIn, WhatsApp preview)
-         ============================================================ -->
+    ============================================================ -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="RG Security Team | Cybersecurity & Ethical Hacking">
     <meta property="og:description" content="Learn cybersecurity, ethical hacking, Kali Linux, and digital privacy with RG Security Team. Expert tutorials for beginners and professionals.">
@@ -29,15 +31,15 @@
 
     <!-- ============================================================
          TWITTER CARD
-         ============================================================ -->
+    ============================================================ -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="RG Security Team | Cybersecurity & Ethical Hacking">
     <meta name="twitter:description" content="Learn cybersecurity, ethical hacking, Kali Linux, and digital privacy with RG Security Team.">
     <meta name="twitter:image" content="https://rgsecteam.github.io/rgsectm/image/rg.png">
 
     <!-- ============================================================
-         STRUCTURED DATA (JSON-LD) — Helps Google understand content
-         ============================================================ -->
+         STRUCTURED DATA (JSON-LD)
+    ============================================================ -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -57,203 +59,361 @@
 
     <!-- ============================================================
          FAVICONS
-         ============================================================ -->
+    ============================================================ -->
     <link rel="apple-touch-icon" sizes="180x180" href="image/favicon_io/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="image/favicon_io/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="image/favicon_io/favicon-16x16.png">
     <link rel="manifest" href="https://rgsecteam.github.io/rgsectm/site.webmanifest">
 
     <!-- ============================================================
-         GOOGLE FONTS — Orbitron (futuristic display) + Share Tech Mono
-         ============================================================ -->
+         FONTS — Orbitron + Share Tech Mono + Exo 2 + JetBrains Mono
+    ============================================================ -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Share+Tech+Mono&family=Exo+2:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Share+Tech+Mono&family=Exo+2:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
+    <!-- a11y skip link -->
+    <a class="skip-link" href="#main">Skip to content</a>
+
     <!-- ============================================================
          BACKGROUND EFFECTS
-         ============================================================ -->
-    <div class="bg-grid"></div>
-    <div class="scanlines"></div>
-    <canvas id="particleCanvas"></canvas>
+    ============================================================ -->
+    <div class="bg-grid" aria-hidden="true"></div>
+    <div class="bg-glow" aria-hidden="true"></div>
+    <canvas id="matrixCanvas" aria-hidden="true"></canvas>
+    <div class="scanlines" aria-hidden="true"></div>
+    <div class="noise" aria-hidden="true"></div>
+
+    <!-- scroll progress -->
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"><span></span></div>
 
     <!-- ============================================================
          HEADER
-         ============================================================ -->
+    ============================================================ -->
     <header class="header" role="banner">
-        <div class="header-glow"></div>
+        <div class="header-glow" aria-hidden="true"></div>
         <div class="container">
             <div class="header-content">
-                <div class="logo-wrapper">
-                    <div class="logo-ring"></div>
+                <a class="logo-wrapper" href="#top" aria-label="RG Security Team home">
+                    <span class="logo-ring" aria-hidden="true"></span>
+                    <span class="logo-ring logo-ring--2" aria-hidden="true"></span>
                     <img src="image/rg.png" alt="RG Security Team Logo" class="logo" loading="eager" width="90" height="90">
-                </div>
+                </a>
+
                 <div class="brand-info">
-                    <div class="brand-tag">&lt;/&gt; EST. 2024</div>
+                    <div class="brand-tag">&lt;/&gt; EST. 2024 · SECURE CHANNEL</div>
                     <h1 class="brand-title">RG SECURITY TEAM</h1>
                     <p class="brand-subtitle">
-                        <span class="typing-text" id="typingText"></span><span class="cursor">_</span>
+                        <span class="typing-text" id="typingText"></span><span class="cursor" aria-hidden="true">▊</span>
                     </p>
                 </div>
-                <nav class="header-nav" aria-label="Site Navigation">
-                    <a href="tools/index.html" class="nav-pill tools" aria-label="Tools">
-                        <svg viewBox="0 0 24 24" fill="currentColor" style="width:15px;height:15px"><path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/></svg>
+
+                <nav class="header-nav" id="headerNav" aria-label="Site Navigation">
+                    <a href="#videos" class="nav-pill">Videos</a>
+                    <a href="#topics" class="nav-pill">Topics</a>
+                    <a href="tools/index.html" class="nav-pill tools">
+                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/></svg>
                         Tools
                     </a>
-                    <a href="https://youtube.com/@RGSecurityTeam" target="_blank" rel="noopener noreferrer" class="nav-pill yt" aria-label="YouTube">
-                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a2.974 2.974 0 0 0-2.094-2.106C19.505 3.5 12 3.5 12 3.5s-7.505 0-9.404.58A2.974 2.974 0 0 0 .502 6.186 30.16 30.16 0 0 0 0 12a30.16 30.16 0 0 0 .502 5.814 2.974 2.974 0 0 0 2.094 2.106C4.495 20.5 12 20.5 12 20.5s7.505 0 9.404-.58a2.974 2.974 0 0 0 2.094-2.106A30.16 30.16 0 0 0 24 12a30.16 30.16 0 0 0-.502-5.814zM9.75 15.5v-7l6 3.5-6 3.5z"/></svg>
-                        Subscribe
-                    </a>
-                </nav>
-            </div>
+                    <a href="https://youtube.com/@RGSecurityTeam" target="_blank" rel="noopener noreferrer" class="nav-pill yt">
+                                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a2.974 2.974 0 0 0-2.094-2.106C19.505 3.5 12 3.5 12 3.5s-7.505 0-9.404.58A2.974 2.974 0 0 0 .502 6.186 30.16 30.16 0 0 0 0 12a30.16 30.16 0 0 0 .502 5.814 2.974 2.974 0 0 0 2.094 2.106C4.495 20.5 12 20.5 12 20.5s7.505 0 9.404-.58a2.974 2.974 0 0 0 2.094-2.106A30.16 30.16 0 0 0 24 12a30.16 30.16 0 0 0-.502-5.814zM9.75 15.5v-7l6 3.5-6 3.5z"/></svg>
+                                            Subscribe
+                                        </a>
+                                    </nav>
+
+                                    <!-- toggle lives OUTSIDE .header-nav so it stays visible
+                                         while the collapsed nav panel itself is hidden -->
+                                    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="headerNav" aria-label="Open menu">
+                                        <span></span><span></span><span></span>
+                                    </button>
+                                </div>
         </div>
     </header>
 
-    <!-- ============================================================
-         HERO STATS BAR
-         ============================================================ -->
-    <div class="stats-bar">
-        <div class="container">
-            <div class="stats-inner">
-                <div class="stat-item">
-                    <span class="stat-icon">▶</span>
-                    <span class="stat-value" data-target="6">45</span>
-                    <span class="stat-label">Videos</span>
-                </div>
-                <div class="stat-divider"></div>
-                <div class="stat-item">
-                    <span class="stat-icon">◈</span>
-                    <span class="stat-value">4</span>
-                    <span class="stat-label">Platforms</span>
-                </div>
-                <div class="stat-divider"></div>
-                <div class="stat-item">
-                    <span class="stat-icon">⬡</span>
-                    <span class="stat-label">Cybersecurity & Ethical Hacking</span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- ============================================================
-         VIDEO SECTION
-         ============================================================ -->
-    <main>
-    <section class="video-section" aria-label="Latest Videos">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-tag">// LATEST CONTENT</div>
-                <h2 class="section-title">Latest <span class="accent">Videos</span></h2>
-                <p class="section-sub">Explore our latest cybersecurity tutorials and hacking demonstrations</p>
-            </div>
-
-            <div class="video-slider-wrapper">
-                <div class="video-slider">
-                    <div class="video-container" id="videoContainer" role="list" aria-label="Video slider">
-                        <!-- Videos injected by script.js -->
+    <main id="main">
+        <!-- ============================================================
+             HERO
+        ============================================================ -->
+        <section class="hero" id="top">
+            <div class="container hero-grid">
+                <div class="hero-copy">
+                    <div class="badge reveal">
+                        <span class="pulse-dot" aria-hidden="true"></span>
+                        THREAT INTEL · CHANNEL ONLINE
                     </div>
+
+                    <h2 class="hero-title reveal" data-delay="1">
+                        <span class="glitch" data-text="HACK THE">HACK THE</span><br>
+                        <span class="grad">SYSTEM</span>
+                    </h2>
+
+                    <p class="hero-sub reveal" data-delay="2">
+                        Hands-on <strong>ethical hacking</strong>, <strong>Kali Linux</strong> tooling and
+                        <strong>network forensics</strong> — explained line by line, attack by attack,
+                        so you learn the mindset, not just the commands.
+                    </p>
+
+                    <div class="hero-cta reveal" data-delay="3">
+                        <a href="https://youtube.com/@RGSecurityTeam" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                            Watch Tutorials
+                        </a>
+                        <a href="tools/index.html" class="btn btn-ghost">
+                            Browse Toolkit
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+                        </a>
+                    </div>
+
+                    <dl class="hero-stats reveal" data-delay="4">
+                                            <div class="stat">
+                                                <dt>Videos</dt>
+                                                <dd data-count="0" data-count-from="videos">0</dd>
+                                            </div>
+                                            <div class="stat">
+                                                <dt>Platforms</dt>
+                                                <dd data-count="0" data-count-from="platforms">0</dd>
+                                            </div>
+                                            <div class="stat">
+                                                <dt>Topic Tracks</dt>
+                                                <dd data-count="0" data-count-from="categories">0</dd>
+                                            </div>
+                                            <div class="stat">
+                                                <dt>Keywords</dt>
+                                                <dd data-count="0" data-count-from="keywords">0</dd>
+                                            </div>
+                                        </dl>
                 </div>
 
-                <!-- Slider Controls -->
-                <button class="slider-btn prev-btn" id="prevBtn" aria-label="Previous video">
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
-                </button>
-                <button class="slider-btn next-btn" id="nextBtn" aria-label="Next video">
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
-                </button>
+                <!-- Terminal panel -->
+                <div class="hero-terminal reveal" data-delay="2" role="img" aria-label="Terminal showing an RG Security Team system status readout">
+                    <div class="term-bar">
+                        <span class="term-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                        <span class="term-title">root@rg-sec:~</span>
+                        <span class="term-live">LIVE</span>
+                    </div>
+                    <div class="term-body" id="termBody"></div>
+                </div>
+            </div>
 
-                <div class="slider-dots" id="sliderDots" role="tablist" aria-label="Video navigation dots">
-                    <!-- Dots injected by script.js -->
-                </div>
+            <!-- ticker -->
+            <div class="ticker" aria-hidden="true">
+                <div class="ticker-track" id="tickerTrack"></div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ============================================================
-         ABOUT / TOPICS SECTION
-         ============================================================ -->
-    <section class="topics-section" aria-label="Topics We Cover">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-tag">// WHAT WE COVER</div>
-                <h2 class="section-title">Our <span class="accent">Topics</span></h2>
-            </div>
-            <div class="topics-grid">
-                <div class="topic-card">
-                    <div class="topic-icon">⬡</div>
-                    <h3>Network Security</h3>
-                    <p>Wi-Fi attacks, DNS spoofing, MITM, packet analysis and defense</p>
+        <!-- ============================================================
+             VIDEOS
+        ============================================================ -->
+        <section class="section video-section" id="videos" aria-label="Latest Videos">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-tag">// latest_content</div>
+                    <h2 class="section-title">Latest <span class="accent">Drops</span></h2>
+                    <p class="section-sub">Every walkthrough starts from zero — no skips, no filler.</p>
+                    <div class="filter-bar" role="group" aria-label="Filter videos" id="filterBar"></div>
                 </div>
-                <div class="topic-card">
-                    <div class="topic-icon">◎</div>
-                    <h3>Privacy & Anonymity</h3>
-                    <p>Tor, IP rotation, VPN setups, digital footprint reduction</p>
-                </div>
-                <div class="topic-card">
-                    <div class="topic-icon">▣</div>
-                    <h3>Ethical Hacking Tools</h3>
-                    <p>Kali Linux tools, exploitation frameworks, penetration testing</p>
-                </div>
-                <div class="topic-card">
-                    <div class="topic-icon">◈</div>
-                    <h3>Malware Analysis</h3>
-                    <p>RATs, payload generation, reverse engineering basics</p>
-                </div>
-                <div class="topic-card">
-                    <div class="topic-icon">⬟</div>
-                    <h3>OSINT & Recon</h3>
-                    <p>GPS tracking, camera phishing, information gathering techniques</p>
-                </div>
-                <div class="topic-card">
-                    <div class="topic-icon">◉</div>
-                    <h3>Security Defense</h3>
-                    <p>How to protect yourself against common cyber attacks</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- ============================================================
-         CONNECT / SOCIAL SECTION
-         ============================================================ -->
-    <section class="contact-section" aria-label="Connect With Us">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-tag">// CONNECT</div>
-                <h2 class="section-title">Find Us <span class="accent">Online</span></h2>
-                <p class="section-sub">Follow for the latest cybersecurity updates, tools, and tutorials</p>
+                <div class="video-grid" id="videoGrid" role="list">
+                    <!-- Videos injected by script.js -->
+                </div>
+
+                <p class="empty-note" id="emptyNote" hidden>No recordings in this track yet.</p>
+                            </div>
+
+                            <!-- ============================================================
+                                 SEO KEYWORD CLOUD
+                                 Keywords harvested from the channel's own video tags by
+                                 tools/fetch_videos.py. Visible text = topical relevance;
+                                 each links into the grid above.
+                            ============================================================ -->
+                            <div class="seo-block">
+                                <h3 class="seo-title">Browse by topic</h3>
+                                <p class="seo-sub">Every keyword below comes straight from our uploaded videos.</p>
+                                <div class="keyword-cloud" id="keywordCloud" aria-label="Topic keywords">
+                                    <!-- Keywords injected by script.js -->
+                                </div>
+                            </div>
+                        </section>
+
+        <!-- ============================================================
+             TOPICS
+        ============================================================ -->
+        <section class="section topics-section" id="topics" aria-label="Topics We Cover">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-tag">// what_we_cover</div>
+                    <h2 class="section-title">Attack <span class="accent">Surfaces</span></h2>
+                    <p class="section-sub">Six tracks, mapped to a real engagement: recon → access → persist → cover.</p>
+                </div>
+
+                <div class="topics-grid">
+                    <article class="topic-card reveal">
+                        <span class="topic-index">01</span>
+                        <div class="topic-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2a10 10 0 100 20 10 10 0 000-20z"/><path d="M2 12h20M12 2a15 15 0 010 20 15 15 0 010-20z"/></svg>
+                        </div>
+                        <h3>Network Security</h3>
+                        <p>Wi-Fi attacks, DNS spoofing, MITM, packet analysis and how to actually defend against them.</p>
+                        <span class="topic-bar" aria-hidden="true"></span>
+                    </article>
+
+                    <article class="topic-card reveal" data-delay="1">
+                        <span class="topic-index">02</span>
+                        <div class="topic-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l8 4v6c0 5-3.4 9.2-8 10-4.6-.8-8-5-8-10V6l8-4z"/><path d="M9 12l2 2 4-4"/></svg>
+                        </div>
+                        <h3>Privacy &amp; Anonymity</h3>
+                        <p>Tor, IP rotation, hardened VPN setups and shrinking your digital footprint for good.</p>
+                        <span class="topic-bar" aria-hidden="true"></span>
+                    </article>
+
+                    <article class="topic-card reveal" data-delay="2">
+                        <span class="topic-index">03</span>
+                        <div class="topic-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14.7 6.3a4 4 0 01-5.4 5.4L4 17v3h3l5.3-5.3a4 4 0 015.4-5.4l-2.5 2.5"/></svg>
+                        </div>
+                        <h3>Ethical Hacking Tools</h3>
+                        <p>Kali Linux toolchain, exploitation frameworks and repeatable penetration testing workflow.</p>
+                        <span class="topic-bar" aria-hidden="true"></span>
+                    </article>
+
+                    <article class="topic-card reveal">
+                        <span class="topic-index">04</span>
+                        <div class="topic-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 118 0v3"/></svg>
+                        </div>
+                        <h3>Malware Analysis</h3>
+                        <p>RATs, payload behaviour, static triage and reverse-engineering fundamentals.</p>
+                        <span class="topic-bar" aria-hidden="true"></span>
+                    </article>
+
+                    <article class="topic-card reveal" data-delay="1">
+                        <span class="topic-index">05</span>
+                        <div class="topic-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/></svg>
+                        </div>
+                        <h3>OSINT &amp; Recon</h3>
+                        <p>GPS tracking, camera phishing and passive information gathering done properly.</p>
+                        <span class="topic-bar" aria-hidden="true"></span>
+                    </article>
+
+                    <article class="topic-card reveal" data-delay="2">
+                        <span class="topic-index">06</span>
+                        <div class="topic-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l7 3v6c0 4.4-2.9 8.3-7 9-4.1-.7-7-4.6-7-9V6l7-3z"/><path d="M12 8v5"/></svg>
+                        </div>
+                        <h3>Security Defense</h3>
+                        <p>Locking down the attack paths we demonstrated — detection, prevention, response.</p>
+                        <span class="topic-bar" aria-hidden="true"></span>
+                    </article>
+                </div>
             </div>
-            <div class="social-links" id="socialLinks" role="list">
-                <!-- Social links injected by script.js -->
+        </section>
+
+        <!-- ============================================================
+             PROCESS
+        ============================================================ -->
+        <section class="section process-section" aria-label="How we teach">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-tag">// methodology</div>
+                    <h2 class="section-title">The <span class="accent">Loop</span></h2>
+                    <p class="section-sub">Every video runs the same four-stage engagement loop.</p>
+                </div>
+
+                <ol class="process-grid">
+                    <li class="step-card reveal">
+                        <span class="step-num">01</span>
+                        <h3>Recon</h3>
+                        <p>Map the target. Passive first, active second — and always log what you found.</p>
+                    </li>
+                    <li class="step-card reveal" data-delay="1">
+                        <span class="step-num">02</span>
+                        <h3>Access</h3>
+                        <p>Turn the weakness into a foothold with a documented, reproducible step.</p>
+                    </li>
+                    <li class="step-card reveal" data-delay="2">
+                        <span class="step-num">03</span>
+                        <h3>Impact</h3>
+                        <p>Prove what an attacker could actually reach — data, accounts, lateral movement.</p>
+                    </li>
+                    <li class="step-card reveal" data-delay="3">
+                        <span class="step-num">04</span>
+                        <h3>Harden</h3>
+                        <p>Close it. Same video, defensive ending — because defence is the actual goal.</p>
+                    </li>
+                </ol>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <!-- ============================================================
+             TOOLKIT CTA
+        ============================================================ -->
+        <section class="cta-band" aria-label="Toolkit">
+            <div class="container cta-inner">
+                <div>
+                    <div class="section-tag">// toolkit</div>
+                    <h2 class="cta-title">Free tools. No gatekeeping.</h2>
+                    <p class="cta-sub">The scripts, configs and checklists we actually use during a session.</p>
+                </div>
+                <a href="tools/index.html" class="btn btn-primary btn-lg">
+                    Open Toolkit
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+                </a>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             CONNECT
+        ============================================================ -->
+        <section class="section contact-section" id="connect" aria-label="Connect With Us">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-tag">// connect</div>
+                    <h2 class="section-title">Open <span class="accent">Channel</span></h2>
+                    <p class="section-sub">New walkthroughs drop first on these platforms.</p>
+                </div>
+                <div class="social-links" id="socialLinks" role="list">
+                    <!-- Social links injected by script.js -->
+                </div>
+            </div>
+        </section>
     </main>
 
     <!-- ============================================================
          FOOTER
-         ============================================================ -->
+    ============================================================ -->
     <footer class="footer" role="contentinfo">
+        <div class="footer-glow" aria-hidden="true"></div>
         <div class="container">
             <div class="footer-inner">
                 <div class="footer-brand">
                     <span class="footer-logo-text">RG<span class="accent">SEC</span></span>
-                    <p>Cybersecurity & Ethical Hacking</p>
+                    <p>Cybersecurity &amp; Ethical Hacking</p>
                 </div>
-                <div class="footer-links">
+                <nav class="footer-links" aria-label="Footer">
+                    <a href="#videos">Videos</a>
+                    <a href="#topics">Topics</a>
+                    <a href="tools/index.html">Tools</a>
                     <a href="https://youtube.com/@RGSecurityTeam" target="_blank" rel="noopener noreferrer">YouTube</a>
                     <a href="https://github.com/rgsecteam" target="_blank" rel="noopener noreferrer">GitHub</a>
                     <a href="https://www.facebook.com/RGSecTeam" target="_blank" rel="noopener noreferrer">Facebook</a>
-                </div>
-                <p class="footer-copy">&copy; 2026 RGSecurityTeam. All rights reserved. For educational purposes only.</p>
+                </nav>
+                <p class="footer-copy">© <span id="year">2026</span> RGSecurityTeam. All rights reserved. For educational purposes only.</p>
             </div>
         </div>
     </footer>
 
+    <button class="to-top" id="toTop" aria-label="Back to top">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z"/></svg>
+    </button>
+
+    <script src="data/videos.js"></script>
+    <script src="data/keywords.js"></script>
     <script src="script.js"></script>
     <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-5HYC14J8MQ"></script>
@@ -261,10 +421,7 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-5HYC14J8MQ');
 </script>
 </body>
 </html>
-
-
