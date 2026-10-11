@@ -17,8 +17,27 @@ const VIDEO_DATA = [
    "AI Tutorial",
    "Artificial Intelligence"
   ],
-  "views": 497
+  "views": 1200
  },
+{
+  "id": "HhhKfu5nMXY",
+  "title": "No Subscription. No API Key. This AI Agent Does It All! | OpenCode + Cybersecurity",
+  "youtubeId": "HhhKfu5nMXY",
+  "duration": "5:41",
+  "category": "ai",
+  "uploadDate": "2026-10-08",
+  "description": "OpenCode AI Agent, Kali Linux, AI Coding, Cybersecurity, Ethical Hacking, and Penetration Testing — all in one powerful setup.",
+  "keywords": [
+   "OpenCode",
+   "AI Developer",
+   "AI Server",
+   "AI Tools",
+   "AI Tutorial",
+   "Artificial Intelligence"
+  ],
+  "views": 20000
+ },
+   
  {
   "id": "RXYMBtniutI",
   "title": "I Built a Zero Cost Claude Code Engine with 9Router",
