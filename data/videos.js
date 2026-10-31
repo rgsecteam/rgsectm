@@ -2,6 +2,24 @@
    Re-run:  python3 tools/fetch_videos.py */
 const VIDEO_DATA = [
    {
+  "id": "DHZECISfaMc",
+  "title": "I Jailbroke My AI Coding Agent… It Actually Worked! 😳",
+  "youtubeId": "DHZECISfaMc",
+  "duration": "5:00",
+  "category": "ai",
+  "uploadDate": "2026-10-31",
+  "description": "customize OpenCode AI Agent instructions using a GitHub Jailbreak repository! In this practical demonstration.",
+  "keywords": [
+   "AI Coding",
+   "AI Developer",
+   "AI Server",
+   "AI Tools",
+   "AI Tutorial",
+   "Artificial Intelligence"
+  ],
+  "views": 100
+ },   
+   {
   "id": "hJDETQZi0NM",
   "title": "AI Hacking Is Getting Scary… I Tested It on My Own Game",
   "youtubeId": "KPlZq3Lw8X8",
@@ -17,7 +35,7 @@ const VIDEO_DATA = [
    "AI Tutorial",
    "Artificial Intelligence"
   ],
-  "views": 20000
+  "views": 1700
  },
  {
   "id": "hJDETQZi0NM",
@@ -35,7 +53,7 @@ const VIDEO_DATA = [
    "AI Tutorial",
    "Artificial Intelligence"
   ],
-  "views": 1200
+  "views": 3200
  },
 {
   "id": "HhhKfu5nMXY",
@@ -53,7 +71,7 @@ const VIDEO_DATA = [
    "AI Tutorial",
    "Artificial Intelligence"
   ],
-  "views": 20000
+  "views": 70000
  },
    
  {
