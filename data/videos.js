@@ -18,7 +18,7 @@ const VIDEO_DATA = [
    "Artificial Intelligence"
   ],
   "views": 5000
- },
+  },
    {
   "id": "DHZECISfaMc",
   "title": "I Jailbroke My AI Coding Agent… It Actually Worked! 😳",
