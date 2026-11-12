@@ -2,6 +2,24 @@
    Re-run:  python3 tools/fetch_videos.py */
 const VIDEO_DATA = [
    {
+  "id": "Xee9LXMrtlk",
+  "title": "OpenCode Rate Limit Exceeded? Here's the Permanent Fix!",
+  "youtubeId": "Xee9LXMrtlk",
+  "duration": "5:10",
+  "category": "ai",
+  "uploadDate": "2026-11-11",
+  "description": "integrate 9Router with OpenCode and create an automatic AI model fallback chain using multiple AI providers.",
+  "keywords": [
+   "AI Coding",
+   "AI Developer",
+   "AI Server",
+   "AI Tools",
+   "AI Tutorial",
+   "Artificial Intelligence"
+  ],
+  "views": 5000
+ },
+   {
   "id": "DHZECISfaMc",
   "title": "I Jailbroke My AI Coding Agent… It Actually Worked! 😳",
   "youtubeId": "DHZECISfaMc",
@@ -17,8 +35,8 @@ const VIDEO_DATA = [
    "AI Tutorial",
    "Artificial Intelligence"
   ],
-  "views": 100
- },   
+  "views": 4000
+  },
    {
   "id": "hJDETQZi0NM",
   "title": "AI Hacking Is Getting Scary… I Tested It on My Own Game",
@@ -35,7 +53,7 @@ const VIDEO_DATA = [
    "AI Tutorial",
    "Artificial Intelligence"
   ],
-  "views": 1700
+  "views": 2400
  },
  {
   "id": "hJDETQZi0NM",
@@ -71,7 +89,7 @@ const VIDEO_DATA = [
    "AI Tutorial",
    "Artificial Intelligence"
   ],
-  "views": 70000
+  "views": 100000
  },
    
  {
