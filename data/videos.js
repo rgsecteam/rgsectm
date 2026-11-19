@@ -19,6 +19,26 @@ const VIDEO_DATA = [
   ],
   "views": 5000
   },
+   
+   {
+  "id": "nYwsxcu8RqE",
+  "title": "OpenCode Rate Limit Exceeded? Here's the Permanent Fix!",
+  "youtubeId": "nYwsxcu8RqE",
+  "duration": "8:00",
+  "category": "ai",
+  "uploadDate": "2026-11-19",
+  "description": "Craft Anything with OpenCode to study and recreate websites, applications, and games using an AI Coding Agent.",
+  "keywords": [
+   "AI Coding",
+   "AI Developer",
+   "AI Server",
+   "AI Tools",
+   "AI Tutorial",
+   "Artificial Intelligence"
+  ],
+  "views": 400
+  },
+   
    {
   "id": "DHZECISfaMc",
   "title": "I Jailbroke My AI Coding Agent… It Actually Worked! 😳",
